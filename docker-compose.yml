@@ -1,0 +1,13 @@
+version: "3.5"
+
+networks:
+  chicken:
+
+services:
+  e-chicken-ui:
+    container_name: "e-chicken-ui"
+    build:
+      context: .
+    privileged: true
+    networks:
+      - chicken
