@@ -6,7 +6,7 @@ COPY src .
 COPY requirements.txt .
 
 RUN apt-get update
-RUN apt-get install --yes cron
+RUN apt-get install --yes gcc
 RUN pip3 install --no-cache-dir --requirement requirements.txt
 
 CMD python ./e-chicken-ui.py
