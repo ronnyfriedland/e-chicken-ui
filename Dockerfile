@@ -1,12 +1,15 @@
-FROM arm32v7/python:3.7-slim-bullseye
+FROM arm32v7/python:3.7-bullseye
+
+EXPOSE 5000
 
 WORKDIR /usr/src/app
 
 COPY src .
 COPY requirements.txt .
 
-RUN apt-get update
-RUN apt-get install --yes gcc
+# allow docker build on non raspberry hardware
+ENV READTHEDOCS=True
+
 RUN pip3 install --no-cache-dir --requirement requirements.txt
 
 CMD python ./e-chicken-ui.py
