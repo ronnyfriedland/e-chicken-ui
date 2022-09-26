@@ -1,4 +1,4 @@
-FROM arm32v7/python:3.7-bullseye
+FROM arm32v7/python:3-bullseye
 
 EXPOSE 5000
 

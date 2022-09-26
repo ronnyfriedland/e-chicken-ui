@@ -1,4 +1,3 @@
-from unicodedata import is_normalized
 from flask import Flask,render_template, request,json
 
 import RPi.GPIO as GPIO
@@ -43,7 +42,7 @@ def status(pin):
       print("TODO: cleanup ?")
       #GPIO.cleanup()
 
-  return json.dumps({'status':'OK','pin':pin,'state': "HIGH" if is_normalized else "LOW" })
+  return json.dumps({'status':'OK','pin':pin,'state': "HIGH" if is_on else "LOW" })
 
 
 if __name__ == '__main__':
