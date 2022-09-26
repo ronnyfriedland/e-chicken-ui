@@ -25,8 +25,6 @@ $(function(){
 			var pin = $(this).attr('value');
 			var state = $(this)[0].checked ? "HIGH" : "LOW";
 
-			console.log($(this)[0].checked)
-
 			$.ajax({
 				url: '/pin',
 				data: 'pin='+pin+"&state="+state,
@@ -41,8 +39,11 @@ $(function(){
 					console.log(error);
 				}
 			});
-	
+
 		});
 
+		setTimeout(function() {
+			$('input:radio').prop("checked", false);
+		}, 3000);
 	});
 });
