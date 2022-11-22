@@ -26,8 +26,7 @@ def toggle():
         GPIO.output(int(pin), GPIO.LOW)
         new_state = "LOW"
   finally:
-      print("TODO: cleanup ?")
-      #GPIO.cleanup()
+      print("pin %d updated to state %s".format(pin, state))
 
   return json.dumps({'status':'OK','pin':pin,'state':new_state})
 
@@ -39,8 +38,7 @@ def status(pin):
 
       is_on = GPIO.input(int(pin))
   finally:
-      print("TODO: cleanup ?")
-      #GPIO.cleanup()
+      print("pin %d state returned".format(pin))
 
   return json.dumps({'status':'OK','pin':pin,'state': "HIGH" if is_on else "LOW" })
 
